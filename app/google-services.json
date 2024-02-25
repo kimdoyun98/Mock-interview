@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "531255737030",
+    "project_id": "interview-f48a0",
+    "storage_bucket": "interview-f48a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531255737030:android:07caa2624bcc618a7db5c7",
+        "android_client_info": {
+          "package_name": "com.project.interview"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpvA1bpBUI5z7pYUrKH9p0-B7AKxkx-O0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
