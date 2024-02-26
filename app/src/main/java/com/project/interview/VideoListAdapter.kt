@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.SystemClock
@@ -34,6 +35,7 @@ class VideoListAdapter : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
     private lateinit var videoList : ArrayList<Video>
     private lateinit var context:Context
     private var itemClickListener : InterviewOnClickListener? = null
+    private var viewType = 0
 
     fun setInterviewOnClickListener(listener: InterviewOnClickListener){
         itemClickListener = listener
@@ -55,9 +57,10 @@ class VideoListAdapter : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list : ArrayList<Video>, context: Context){
+    fun setList(list : ArrayList<Video>, context: Context, viewType: Int){
         videoList = list
         this.context = context
+        this.viewType = viewType
         notifyDataSetChanged()
     }
 
@@ -68,6 +71,13 @@ class VideoListAdapter : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(videoList[position])
+
+        if(viewType == 1){
+            binding.videoMenu.visibility = View.GONE
+            binding.videoName.setTextColor(Color.WHITE)
+            binding.videoSize.setTextColor(Color.WHITE)
+        }
+
         binding.videoMenu.setOnClickListener {
             bottomSheetDialog = BottomSheetDialog(context, R.style.BottomSheetTheme)
 

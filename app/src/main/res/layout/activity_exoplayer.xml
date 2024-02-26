@@ -19,7 +19,3 @@
         app:show_timeout="4000"
         app:surface_type="surface_view" />
 </RelativeLayout>
-
-<!-- app:player_layout_id="@layout/exo_player_view"
-        app:rewind_increment="10000"
-        app:fastforward_increment="10000"-->

@@ -42,7 +42,8 @@ class Exoplayer : AppCompatActivity(), View.OnClickListener{
 
         exoplayerBinding.exoNext.setOnClickListener(this)
         exoplayerBinding.exoPrev.setOnClickListener(this)
-
+        exoplayerBinding.videoBack.setOnClickListener(this)
+        exoplayerBinding.videoList.setOnClickListener(this)
 
         playVideo()
     }
@@ -71,10 +72,18 @@ class Exoplayer : AppCompatActivity(), View.OnClickListener{
                     finish()
                 }
             }
+            R.id.video_list -> {
+                val videoListDialog = VideoListDialog()
+                videoListDialog.setList(videoList, intent.getStringExtra("folder")!!)
+                videoListDialog.show(supportFragmentManager, videoListDialog.tag)
+            }
+            R.id.video_back -> finish()
         }
     }
 
     private fun playVideo(){
+        exoplayerBinding.videoTitle.text = videoList[position].displayName
+
         player = SimpleExoPlayer.Builder(this).build()
         val dataSourceFactory = DefaultDataSourceFactory(this, Util.getUserAgent(this, "app"))
         concatenatingMediaSorce = ConcatenatingMediaSource()
@@ -88,6 +97,7 @@ class Exoplayer : AppCompatActivity(), View.OnClickListener{
         binding.exoplayerView.keepScreenOn = true
         player.prepare(concatenatingMediaSorce)
         player.seekTo(position, C.TIME_UNSET)
+
         playError()
     }
 
@@ -126,5 +136,10 @@ class Exoplayer : AppCompatActivity(), View.OnClickListener{
         super.onRestart()
         player.playWhenReady = true
         player.playbackState
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player.release()
     }
 }

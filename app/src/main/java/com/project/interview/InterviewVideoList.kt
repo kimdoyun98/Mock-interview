@@ -29,22 +29,20 @@ class InterviewVideoList : AppCompatActivity() {
 
         getVideoList(this)
 
-
         val adapter = VideoListAdapter().apply {
-            setList(videoList, this@InterviewVideoList)
+            setList(videoList, this@InterviewVideoList, 0)
         }
         binding.videoList.adapter = adapter
-
 
         adapter.setInterviewOnClickListener(object : VideoListAdapter.InterviewOnClickListener {
             override fun onClick(pos: Int) {
                 val intent = Intent(this@InterviewVideoList, Exoplayer::class.java)
                 intent.putExtra("videoList", videoList)
                 intent.putExtra("position", pos)
+                intent.putExtra("folder", name)
                 startActivity(intent)
             }
         })
-
     }
 
     private fun getVideoList(context: Context){
@@ -80,8 +78,6 @@ class InterviewVideoList : AppCompatActivity() {
             }
             cursor.close()
         }
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
