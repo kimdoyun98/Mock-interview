@@ -1,6 +1,9 @@
 package com.project.interview
 
+import android.annotation.SuppressLint
+import android.graphics.Point
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -28,6 +31,9 @@ class Exoplayer : AppCompatActivity(), View.OnClickListener{
     private lateinit var player: SimpleExoPlayer
     private lateinit var concatenatingMediaSorce : ConcatenatingMediaSource
 
+    private var waitTimeLeft = 0L
+    private var waitTimeRight = 0L
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExoplayerBinding.inflate(layoutInflater)
@@ -46,6 +52,43 @@ class Exoplayer : AppCompatActivity(), View.OnClickListener{
         exoplayerBinding.videoList.setOnClickListener(this)
 
         playVideo()
+
+        /**
+         * 더블 클릭 시 10초 앞뒤로 이동
+         */
+        binding.exoplayerView.setOnTouchListener { _, event ->
+            if(event.actionMasked == MotionEvent.ACTION_DOWN){
+                val size = Point()
+                windowManager.defaultDisplay.getSize(size)
+
+                val x = event.x // 터치 좌표
+
+                // Right
+                if(size.x/2 < x){
+                    // 한 번 터치
+                    if(System.currentTimeMillis() - waitTimeRight >=500 ) {
+                        waitTimeRight = System.currentTimeMillis()
+                        waitTimeLeft = 0L
+                    }
+                    // 두 번 터치 시 10초 앞으로
+                    else {
+                        player.seekTo(player.currentPosition + 10000)
+                    }
+                }
+                //Left
+                else{
+                    if(System.currentTimeMillis() - waitTimeLeft >=500 ) {
+                        waitTimeLeft = System.currentTimeMillis()
+                        waitTimeRight = 0L
+                    }
+                    // 두 번 터치 시 10초 뒤로
+                    else {
+                        player.seekTo(player.currentPosition - 10000)
+                    }
+                }
+            }
+            true
+        }
     }
 
     override fun onClick(v: View?) {

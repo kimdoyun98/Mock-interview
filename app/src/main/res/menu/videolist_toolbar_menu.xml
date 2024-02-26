@@ -4,8 +4,7 @@
     <item
         android:id="@+id/add_video"
         android:title="add"
-        android:icon="@drawable/plus"
-        android:iconTint="@color/white"
+        android:icon="@drawable/ic_add"
         app:showAsAction="always"
         />
 </menu>
