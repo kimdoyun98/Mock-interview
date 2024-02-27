@@ -12,6 +12,7 @@ import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.SystemClock
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.project.interview.databinding.VideoBsLayoutBinding
 import com.project.interview.databinding.VideoItemBinding
 import java.io.File
+import kotlin.math.roundToInt
 
 class VideoListAdapter : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
     lateinit var binding : VideoItemBinding
@@ -191,12 +193,10 @@ class VideoListAdapter : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
         return bitMap
     }
 
-    private fun timeConversion(values: Long): String{
-        val duration = values.toInt()
-        val hrs = duration/3600000
-        val mns = (duration/6000) % 60000
-        val scs = duration%60000/1000
-
-        return if(hrs > 0) String.format("%02d:%02d:%02d", hrs, mns, scs) else String.format("%02d:%02d", mns, scs)
-    }
+    private fun timeConversion(values: Long): String =
+        String.format(
+            "%02d:%02d",
+            ((values.toDouble() / 1000).roundToInt())/60,
+            ((values.toDouble() / 1000).roundToInt())%60
+        )
 }
