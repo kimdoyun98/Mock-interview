@@ -12,7 +12,7 @@ class InterviewListAdapter : RecyclerView.Adapter<InterviewListAdapter.ViewHolde
         fun onClick(string : String)
     }
     lateinit var binding : InterviewItemBinding
-    private lateinit var list : Array<String>
+    private lateinit var list : ArrayList<String>
     private var itemClickListener : InterviewOnClickListener? = null
 
     fun setInterviewOnClickListener(listener : InterviewOnClickListener){
@@ -32,7 +32,7 @@ class InterviewListAdapter : RecyclerView.Adapter<InterviewListAdapter.ViewHolde
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list : Array<String>){
+    fun setList(list : ArrayList<String>){
         this.list = list
         notifyDataSetChanged()
     }
