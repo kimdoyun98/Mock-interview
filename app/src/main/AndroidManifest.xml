@@ -15,7 +15,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".MyApplication"
+        android:name=".util.MyApplication"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -25,17 +25,17 @@
         android:theme="@style/Theme.Interview"
         tools:targetApi="31">
         <activity
-            android:name=".Exoplayer"
+            android:name=".ui.video.Exoplayer"
             android:configChanges="orientation|screenSize|layoutDirection"
             android:exported="false" />
         <activity
-            android:name=".RecordingInterview"
+            android:name=".ui.recording.RecordingInterview"
             android:exported="false" />
         <activity
-            android:name=".InterviewVideoList"
+            android:name=".ui.videolist.InterviewVideoList"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.home.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

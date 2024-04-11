@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.adapter
 
 import android.view.LayoutInflater
 import android.view.View

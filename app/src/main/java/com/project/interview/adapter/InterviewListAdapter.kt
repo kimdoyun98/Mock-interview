@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

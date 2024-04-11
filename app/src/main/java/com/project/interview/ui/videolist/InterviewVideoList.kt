@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.ui.videolist
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,12 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.project.interview.R
+import com.project.interview.data.Video
+import com.project.interview.adapter.VideoListAdapter
 import com.project.interview.databinding.ActivityInterviewVideoListBinding
+import com.project.interview.ui.recording.RecordingInterview
+import com.project.interview.ui.video.Exoplayer
 
 class InterviewVideoList : AppCompatActivity() {
     private lateinit var binding : ActivityInterviewVideoListBinding

@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,15 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.project.interview.util.MyApplication
+import com.project.interview.R
+import com.project.interview.adapter.SettingsAdapter
+import com.project.interview.adapter.InterviewListAdapter
+import com.project.interview.adapter.YoutubeAdapter
 import com.project.interview.databinding.ActivityMainBinding
 import com.project.interview.databinding.InterviewBsLayoutBinding
+import com.project.interview.ui.videolist.InterviewVideoList
+import com.project.interview.util.TransformJson
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -85,7 +92,8 @@ class MainActivity : AppCompatActivity() {
             /**
              * Main Adapter 갱신
              */
-            settingsAdapter.setInterviewDeleteListener(object : SettingsAdapter.InterviewDeleteListener{
+            settingsAdapter.setInterviewDeleteListener(object :
+                SettingsAdapter.InterviewDeleteListener {
                 override fun onClick(position: Int) {
                     adapter.setList(interviewList)
                 }

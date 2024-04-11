@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.ui.video
 
 import android.annotation.SuppressLint
 import android.graphics.Point
@@ -19,8 +19,11 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
+import com.project.interview.R
+import com.project.interview.data.Video
 import com.project.interview.databinding.ActivityExoplayerBinding
 import com.project.interview.databinding.CustomPlaybackViewBinding
+import com.project.interview.ui.videolist.VideoListDialog
 
 class Exoplayer : AppCompatActivity(), View.OnClickListener{
     private lateinit var binding : ActivityExoplayerBinding

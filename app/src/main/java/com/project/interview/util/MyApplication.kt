@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.util
 
 import android.app.Application
 

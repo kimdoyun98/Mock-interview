@@ -1,10 +1,12 @@
-package com.project.interview
+package com.project.interview.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.project.interview.util.MyApplication
 import com.project.interview.databinding.InterviewBsItemBinding
+import com.project.interview.util.TransformJson
 
 class SettingsAdapter: RecyclerView.Adapter<SettingsAdapter.ViewHolder>() {
     private lateinit var interviewList: ArrayList<String>
@@ -32,12 +34,12 @@ class SettingsAdapter: RecyclerView.Adapter<SettingsAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = InterviewBsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding.root)
     }
 
-    override fun onBindViewHolder(holder: SettingsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(position)
         binding.interviewBsDelete.setOnClickListener {
             interviewList.removeAt(position)

@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.data
 
 import android.net.Uri
 import android.os.Parcelable

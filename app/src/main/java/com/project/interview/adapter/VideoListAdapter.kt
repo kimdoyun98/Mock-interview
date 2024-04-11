@@ -1,10 +1,9 @@
-package com.project.interview
+package com.project.interview.adapter
 
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentUris
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -12,7 +11,6 @@ import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.SystemClock
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +19,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.project.interview.R
+import com.project.interview.data.Video
 import com.project.interview.databinding.VideoBsLayoutBinding
 import com.project.interview.databinding.VideoItemBinding
 import java.io.File

@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.ui.videolist
 
 import android.app.Dialog
 import android.content.Intent
@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.project.interview.adapter.VideoListAdapter
+import com.project.interview.data.Video
 import com.project.interview.databinding.VideolistBsLayoutBinding
+import com.project.interview.ui.video.Exoplayer
 
 class VideoListDialog : BottomSheetDialogFragment() {
     private lateinit var binding: VideolistBsLayoutBinding

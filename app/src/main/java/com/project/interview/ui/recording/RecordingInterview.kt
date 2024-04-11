@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.ui.recording
 
 import android.Manifest
 import android.Manifest.permission.CAMERA
@@ -8,7 +8,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +25,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
+import com.project.interview.R
 import com.project.interview.databinding.ActivityRecordingInterviewBinding
 import java.text.SimpleDateFormat
 import java.util.Locale

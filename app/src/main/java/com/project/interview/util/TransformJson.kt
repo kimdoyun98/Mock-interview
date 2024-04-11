@@ -1,4 +1,4 @@
-package com.project.interview
+package com.project.interview.util
 
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
